@@ -16,7 +16,7 @@ namespace CarDealership.Data.Models
         [MaxLength(LocationMaxLenght)]
         public string Location { get; set; }
 
-        //public ICollection<DealershipCar> DealershipCars { get; set; }
+        public ICollection<DealershipsCars> DealershipsCars { get; set; }
         public ICollection<Employees> Employees { get; set; }
     }
 }

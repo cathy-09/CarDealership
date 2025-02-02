@@ -43,6 +43,6 @@ namespace CarDealership.Data.Models
         [Range((double)DataConstants.Cars.PriceMin, (double)DataConstants.Cars.PriceMax)]
         public decimal Price { get; set; }
 
-        //public ICollection<DealershipCar> DealershipCars { get; set; }
+        public ICollection<DealershipsCars> DealershipsCars { get; set; }
     }
 }
