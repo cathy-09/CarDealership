@@ -12,5 +12,10 @@
             public const decimal PriceMin = 0.01m;
             public const decimal PriceMax = 1000000m;
         }
+        public class Dealerships 
+        {
+            public const int NameMaxLength = 100;
+            public const int LocationMaxLenght = 200;
+        }
     }
 }
