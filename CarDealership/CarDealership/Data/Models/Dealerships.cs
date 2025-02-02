@@ -17,6 +17,6 @@ namespace CarDealership.Data.Models
         public string Location { get; set; }
 
         //public ICollection<DealershipCar> DealershipCars { get; set; }
-        //public ICollection<Employee> Employees { get; set; }
+        public ICollection<Employees> Employees { get; set; }
     }
 }

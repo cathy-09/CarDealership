@@ -17,5 +17,14 @@
             public const int NameMaxLength = 100;
             public const int LocationMaxLenght = 200;
         }
+        public class Employees 
+        {
+            public const int FirstNameMaxLength = 50;
+            public const int LastNameMaxLength = 50;
+            public const int EmailMaxLength = 100;
+            public const int PhoneNumberMaxLength = 15;
+            public const decimal SalaryMin = 0.01m;
+            public const decimal SalaryMax = 1000000m;
+        }
     }
 }
