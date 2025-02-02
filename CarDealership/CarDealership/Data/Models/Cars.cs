@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using static CarDealership.Data.DataConstants.Cars;
 
@@ -8,6 +9,9 @@ namespace CarDealership.Data.Models
     {
         [Key]
         public int CarId { get; set; }
+
+        [Required]
+        public string CarImageURL { get; set; }
 
         [Required]
         [MaxLength(BrandMaxLength)]
