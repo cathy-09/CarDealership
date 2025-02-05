@@ -5,7 +5,7 @@ using static CarDealership.Data.DataConstants.Cars;
 
 namespace CarDealership.Data.Models
 {
-    public class Cars
+    public class Car
     {
         [Key]
         public int CarId { get; set; }
@@ -43,6 +43,6 @@ namespace CarDealership.Data.Models
         [Range((double)DataConstants.Cars.PriceMin, (double)DataConstants.Cars.PriceMax)]
         public decimal Price { get; set; }
 
-        public ICollection<DealershipsCars> DealershipsCars { get; set; }
+        public ICollection<DealershipsCars> DealershipsCars { get; set; } = new List<DealershipsCars>();
     }
 }

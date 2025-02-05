@@ -3,7 +3,7 @@ using static CarDealership.Data.DataConstants.Dealerships;
 
 namespace CarDealership.Data.Models
 {
-    public class Dealerships
+    public class Dealership
     {
         [Key]
         public int DealershipId { get; set; }
@@ -16,7 +16,7 @@ namespace CarDealership.Data.Models
         [MaxLength(LocationMaxLenght)]
         public string Location { get; set; }
 
-        public ICollection<DealershipsCars> DealershipsCars { get; set; }
-        public ICollection<Employees> Employees { get; set; }
+        public ICollection<DealershipsCars> DealershipsCars { get; set; } = new List<DealershipsCars>();
+        public ICollection<Employee> Employees { get; set; }
     }
 }

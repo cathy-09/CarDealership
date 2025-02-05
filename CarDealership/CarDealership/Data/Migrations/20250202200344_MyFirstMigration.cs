@@ -31,7 +31,7 @@ namespace CarDealership.Data.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.CreateTable(
-                name: "Cars",
+                name: "Car",
                 columns: table => new
                 {
                     CarId = table.Column<int>(type: "int", nullable: false)
@@ -52,7 +52,7 @@ namespace CarDealership.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Dealerships",
+                name: "Dealership",
                 columns: table => new
                 {
                     DealershipId = table.Column<int>(type: "int", nullable: false)
@@ -78,13 +78,13 @@ namespace CarDealership.Data.Migrations
                     table.ForeignKey(
                         name: "FK_DealershipsCars_Cars_CarId",
                         column: x => x.CarId,
-                        principalTable: "Cars",
+                        principalTable: "Car",
                         principalColumn: "CarId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_DealershipsCars_Dealerships_DealershipId",
                         column: x => x.DealershipId,
-                        principalTable: "Dealerships",
+                        principalTable: "Dealership",
                         principalColumn: "DealershipId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -109,7 +109,7 @@ namespace CarDealership.Data.Migrations
                     table.ForeignKey(
                         name: "FK_Employees_Dealerships_DealershipId",
                         column: x => x.DealershipId,
-                        principalTable: "Dealerships",
+                        principalTable: "Dealership",
                         principalColumn: "DealershipId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -134,10 +134,10 @@ namespace CarDealership.Data.Migrations
                 name: "Employees");
 
             migrationBuilder.DropTable(
-                name: "Cars");
+                name: "Car");
 
             migrationBuilder.DropTable(
-                name: "Dealerships");
+                name: "Dealership");
 
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CarDealership.Data.Models
 {
-    public class Employees
+    public class Employee
     {
         [Key]
         public int EmployeeId { get; set; }
@@ -31,6 +31,6 @@ namespace CarDealership.Data.Models
         public decimal Salary { get; set; }
 
         //public int DealershipId { get; set; }
-        public Dealerships Dealerships { get; set; }
+        public Dealership Dealerships { get; set; }
     }
 }

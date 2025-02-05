@@ -10,13 +10,13 @@ namespace CarDealership.Data
             : base(options)
         {
         }
-        public DbSet<Cars> Cars { get; set; }
-        public DbSet<Dealerships> Dealerships { get; set; }
+        public DbSet<Car> Cars { get; set; }
+        public DbSet<Dealership> Dealerships { get; set; }
         public DbSet<DealershipsCars> DealershipsCars { get; set; }
-        public DbSet<Employees> Employees { get; set; }
+        public DbSet<Employee> Employees { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Employees>()
+            modelBuilder.Entity<Employee>()
                 .HasOne(e => e.Dealerships)
                 .WithMany(d => d.Employees)
                 .HasForeignKey("DealershipId");
@@ -25,12 +25,12 @@ namespace CarDealership.Data
                 .HasKey(dc => new { dc.DealershipId, dc.CarId });
 
             modelBuilder.Entity<DealershipsCars>()
-                .HasOne(dc => dc.Dealerships)
+                .HasOne(dc => dc.Dealership)
                 .WithMany(d => d.DealershipsCars)
                 .HasForeignKey(dc => dc.DealershipId);
 
             modelBuilder.Entity<DealershipsCars>()
-                .HasOne(dc => dc.Cars)
+                .HasOne(dc => dc.Car)
                 .WithMany(c => c.DealershipsCars)
                 .HasForeignKey(dc => dc.CarId);
 

@@ -22,7 +22,7 @@ namespace CarDealership.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("CarDealership.Data.Models.Cars", b =>
+            modelBuilder.Entity("CarDealership.Data.Models.Car", b =>
                 {
                     b.Property<int>("CarId")
                         .ValueGeneratedOnAdd()
@@ -70,10 +70,10 @@ namespace CarDealership.Data.Migrations
 
                     b.HasKey("CarId");
 
-                    b.ToTable("Cars");
+                    b.ToTable("Car");
                 });
 
-            modelBuilder.Entity("CarDealership.Data.Models.Dealerships", b =>
+            modelBuilder.Entity("CarDealership.Data.Models.Dealership", b =>
                 {
                     b.Property<int>("DealershipId")
                         .ValueGeneratedOnAdd()
@@ -93,7 +93,7 @@ namespace CarDealership.Data.Migrations
 
                     b.HasKey("DealershipId");
 
-                    b.ToTable("Dealerships");
+                    b.ToTable("Dealership");
                 });
 
             modelBuilder.Entity("CarDealership.Data.Models.DealershipsCars", b =>
@@ -157,40 +157,40 @@ namespace CarDealership.Data.Migrations
 
             modelBuilder.Entity("CarDealership.Data.Models.DealershipsCars", b =>
                 {
-                    b.HasOne("CarDealership.Data.Models.Cars", "Cars")
+                    b.HasOne("CarDealership.Data.Models.Car", "Car")
                         .WithMany("DealershipsCars")
                         .HasForeignKey("CarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CarDealership.Data.Models.Dealerships", "Dealerships")
+                    b.HasOne("CarDealership.Data.Models.Dealership", "Dealership")
                         .WithMany("DealershipsCars")
                         .HasForeignKey("DealershipId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Cars");
+                    b.Navigation("Car");
 
-                    b.Navigation("Dealerships");
+                    b.Navigation("Dealership");
                 });
 
             modelBuilder.Entity("CarDealership.Data.Models.Employees", b =>
                 {
-                    b.HasOne("CarDealership.Data.Models.Dealerships", "Dealerships")
+                    b.HasOne("CarDealership.Data.Models.Dealership", "Dealership")
                         .WithMany("Employees")
                         .HasForeignKey("DealershipId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Dealerships");
+                    b.Navigation("Dealership");
                 });
 
-            modelBuilder.Entity("CarDealership.Data.Models.Cars", b =>
+            modelBuilder.Entity("CarDealership.Data.Models.Car", b =>
                 {
                     b.Navigation("DealershipsCars");
                 });
 
-            modelBuilder.Entity("CarDealership.Data.Models.Dealerships", b =>
+            modelBuilder.Entity("CarDealership.Data.Models.Dealership", b =>
                 {
                     b.Navigation("DealershipsCars");
 
