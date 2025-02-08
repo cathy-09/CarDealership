@@ -194,6 +194,47 @@ namespace CarDealership.Controllers
         {
             return _context.Cars.Any(e => e.CarId == id);
         }
+        public async Task<IActionResult> Delete(int id)
+        {
+            var car = await _context.Cars.FindAsync(id);
+            if (car == null)
+            {
+                return BadRequest();
+            }
+
+            DeleteCarsModel carModel = new DeleteCarsModel()
+            {
+                CarId = car.CarId,
+                Brand = car.Brand,
+                Model = car.Model,
+                Year = car.Year,
+                FuelType = car.FuelType,
+                Kilometers = car.Kilometers,
+                HorsePower = car.HorsePower,
+                Price = car.Price,
+                CarImageURL = car.CarImageURL,
+                Description = car.Description
+            };
+
+            return View(carModel);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Delete(DeleteCarsModel carModel)
+        {
+            var car = await _context.Cars.FindAsync(carModel.CarId);
+            if (car == null)
+            {
+                return BadRequest();
+            }
+
+            var carDealerships = _context.DealershipsCars.Where(dc => dc.CarId == car.CarId);
+            _context.DealershipsCars.RemoveRange(carDealerships);
+
+            _context.Cars.Remove(car);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("All", "Car");
+        }
 
     }
 }
