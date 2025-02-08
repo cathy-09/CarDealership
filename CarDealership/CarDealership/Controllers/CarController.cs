@@ -92,57 +92,108 @@ namespace CarDealership.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("All", "Car");
         }
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            var car = await _context
+                .Cars
+                .Where(c => c.CarId == id)
+                .Select(c => new CarDetailsViewModel()
+                {
+                    Id = c.CarId,
+                    Brand = c.Brand,
+                    Model = c.Model,
+                    Year = c.Year,
+                    FuelType = c.FuelType,
+                    Kilometers = c.Kilometers,
+                    HorsePower = c.HorsePower,
+                    Price = c.Price,
+                    CarImageURL = c.CarImageURL,
+                    Description = c.Description,
+                    Dealerships = c.DealershipsCars
+                        .Select(dc => dc.Dealership.Name)
+                        .ToList()
+                })
+                .FirstOrDefaultAsync();
 
-            var car = await _context.Cars.FindAsync(id);
             if (car == null)
             {
-                return NotFound();
+                return BadRequest();
             }
 
             return View(car);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CarId,CarImageURL,Brand,Model,Year,FuelType,Kilometers,HorsePower,Description,Price")] Car car)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id != car.CarId)
+            var car = await _context.Cars.FindAsync(id);
+            if (car == null)
             {
-                return NotFound();
+                return BadRequest();
             }
 
-            if (ModelState.IsValid)
+            EditCarsModel carModel = new EditCarsModel()
             {
-                try
-                {
-                    _context.Update(car);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CarExists(car.CarId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                CarId = car.CarId,
+                Brand = car.Brand,
+                Model = car.Model,
+                Year = car.Year,
+                FuelType = car.FuelType,
+                Kilometers = car.Kilometers,
+                HorsePower = car.HorsePower,
+                Price = car.Price,
+                CarImageURL = car.CarImageURL,
+                Description = car.Description,
+                DealershipId = car.DealershipsCars.FirstOrDefault()?.DealershipId ?? 0,
+                Dealerships = await GetDealerships() 
+            };
+
+            return View(carModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, EditCarsModel carModel)
+        {
+            var car = await _context.Cars.FindAsync(id);
+            if (car == null)
+            {
+                return BadRequest();
             }
-            return View(car);
+
+            if (!(await GetDealerships()).Any(d => d.Id == carModel.DealershipId))
+            {
+                ModelState.AddModelError(nameof(carModel.DealershipId), "Dealership does not exist.");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                carModel.Dealerships = await GetDealerships();
+                return View(carModel);
+            }
+
+            car.Brand = carModel.Brand;
+            car.Model = carModel.Model;
+            car.Year = carModel.Year;
+            car.FuelType = carModel.FuelType;
+            car.Kilometers = carModel.Kilometers;
+            car.HorsePower = carModel.HorsePower;
+            car.Price = carModel.Price;
+            car.CarImageURL = carModel.CarImageURL;
+            car.Description = carModel.Description;
+
+            var carDealership = _context.DealershipsCars.FirstOrDefault(dc => dc.CarId == car.CarId);
+            if (carDealership != null)
+            {
+                carDealership.DealershipId = carModel.DealershipId;
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction("All", "Car");
         }
 
         private bool CarExists(int id)
         {
             return _context.Cars.Any(e => e.CarId == id);
         }
+
     }
 }
