@@ -15,7 +15,17 @@ namespace CarDealership.Controllers
         {
             _context = carDealershipDbContext;
         }
-        
+
+        public async Task<IActionResult> Index()
+        {
+            var cars = await _context.Cars
+                .Include(c => c.DealershipsCars)
+                .ThenInclude(dc => dc.Dealership)
+                .ToListAsync();
+
+            return View(cars);
+        }
+
         public async Task<IActionResult> All()
         {
             var cars = await _context
