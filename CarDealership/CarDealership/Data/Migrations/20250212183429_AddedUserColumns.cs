@@ -249,7 +249,7 @@ namespace CarDealership.Data.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "180945ca-6809-4acb-9033-d34bbc9f973c", 0, "8f600dc0-dfcf-49df-a5da-c98ed6355d94", "IdentityUser", "guest@mail.com", false, false, null, "guest@mail.com", "guest@mail.com", "AQAAAAEAACcQAAAAEHnOHNhKVe7+XBpRiq2ihosN5b6LVKHaH60nWUPrsHBKbN3EuuR9zUn07/ulK9DtcQ==", null, false, "cbe998cf-38a1-4c2b-8e1d-9ffe6ee6ef8a", false, "guest@mail.com" });
+                values: new object[] { "180945ca-6809-4acb-9033-d34bbc9f973c", 0, "875e8246-95c5-460f-b607-132fe474ebbe", "IdentityUser", "guest@mail.com", false, false, null, "guest@mail.com", "guest@mail.com", "AQAAAAEAACcQAAAAEDXKfHmCi+XONxOiKQS8FMWNdRbdATcG1/c7juTb2HnM86afN4aJVocqgOaxutl3GQ==", null, false, "e2f9ac25-d160-4b8e-b0e2-80f00685087e", false, "guest@mail.com" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
