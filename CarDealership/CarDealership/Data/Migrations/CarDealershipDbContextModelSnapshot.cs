@@ -289,15 +289,15 @@ namespace CarDealership.Data.Migrations
                         {
                             Id = "180945ca-6809-4acb-9033-d34bbc9f973c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8f600dc0-dfcf-49df-a5da-c98ed6355d94",
+                            ConcurrencyStamp = "ae95ce2d-c95a-46ff-8b16-4a2a052cf58f",
                             Email = "guest@mail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "guest@mail.com",
                             NormalizedUserName = "guest@mail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHnOHNhKVe7+XBpRiq2ihosN5b6LVKHaH60nWUPrsHBKbN3EuuR9zUn07/ulK9DtcQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAtcj0oxeriyBbfZtsKe0MJuLQ3Cm8ENPxIvviuJGR7c8AtV9VPNkBaxViUkUYjfzA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "cbe998cf-38a1-4c2b-8e1d-9ffe6ee6ef8a",
+                            SecurityStamp = "4dd3c4a7-7edc-43ff-ade6-21af0ac6a718",
                             TwoFactorEnabled = false,
                             UserName = "guest@mail.com"
                         });
