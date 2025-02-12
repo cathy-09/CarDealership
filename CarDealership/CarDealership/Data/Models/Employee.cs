@@ -1,5 +1,6 @@
 ﻿using static CarDealership.Data.DataConstants.Employees;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
 namespace CarDealership.Data.Models
 {

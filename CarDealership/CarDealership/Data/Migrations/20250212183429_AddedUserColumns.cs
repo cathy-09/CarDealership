@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CarDealership.Data.Migrations
 {
-    public partial class CreateD : Migration
+    public partial class AddedUserColumns : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -249,7 +249,7 @@ namespace CarDealership.Data.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "180945ca-6809-4acb-9033-d34bbc9f973c", 0, "ae95ce2d-c95a-46ff-8b16-4a2a052cf58f", "IdentityUser", "guest@mail.com", false, false, null, "guest@mail.com", "guest@mail.com", "AQAAAAEAACcQAAAAEAtcj0oxeriyBbfZtsKe0MJuLQ3Cm8ENPxIvviuJGR7c8AtV9VPNkBaxViUkUYjfzA==", null, false, "4dd3c4a7-7edc-43ff-ade6-21af0ac6a718", false, "guest@mail.com" });
+                values: new object[] { "180945ca-6809-4acb-9033-d34bbc9f973c", 0, "875e8246-95c5-460f-b607-132fe474ebbe", "IdentityUser", "guest@mail.com", false, false, null, "guest@mail.com", "guest@mail.com", "AQAAAAEAACcQAAAAEDXKfHmCi+XONxOiKQS8FMWNdRbdATcG1/c7juTb2HnM86afN4aJVocqgOaxutl3GQ==", null, false, "e2f9ac25-d160-4b8e-b0e2-80f00685087e", false, "guest@mail.com" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
