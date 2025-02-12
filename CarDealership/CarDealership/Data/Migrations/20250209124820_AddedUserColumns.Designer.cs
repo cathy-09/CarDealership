@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarDealership.Data.Migrations
 {
     [DbContext(typeof(CarDealershipDbContext))]
-    [Migration("20250212192211_CreateD")]
-    partial class CreateD
+    [Migration("20250209124820_AddedUserColumns")]
+    partial class AddedUserColumns
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -291,15 +291,15 @@ namespace CarDealership.Data.Migrations
                         {
                             Id = "180945ca-6809-4acb-9033-d34bbc9f973c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ae95ce2d-c95a-46ff-8b16-4a2a052cf58f",
+                            ConcurrencyStamp = "8f600dc0-dfcf-49df-a5da-c98ed6355d94",
                             Email = "guest@mail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "guest@mail.com",
                             NormalizedUserName = "guest@mail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAtcj0oxeriyBbfZtsKe0MJuLQ3Cm8ENPxIvviuJGR7c8AtV9VPNkBaxViUkUYjfzA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHnOHNhKVe7+XBpRiq2ihosN5b6LVKHaH60nWUPrsHBKbN3EuuR9zUn07/ulK9DtcQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4dd3c4a7-7edc-43ff-ade6-21af0ac6a718",
+                            SecurityStamp = "cbe998cf-38a1-4c2b-8e1d-9ffe6ee6ef8a",
                             TwoFactorEnabled = false,
                             UserName = "guest@mail.com"
                         });
