@@ -30,7 +30,9 @@ namespace CarDealership.Data.Models
         [Range((double)DataConstants.Employees.SalaryMin, (double)DataConstants.Employees.SalaryMax)]
         public decimal Salary { get; set; }
 
-        //public int DealershipId { get; set; }
+        public int DealershipId { get; set; }
         public Dealership Dealerships { get; set; }
+        public string UserId { get; set; } // FK ApplicationUser
+        public ApplicationUser User { get; set; }
     }
 }

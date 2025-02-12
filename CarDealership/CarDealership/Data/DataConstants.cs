@@ -26,5 +26,13 @@
             public const decimal SalaryMin = 0.01m;
             public const decimal SalaryMax = 1000000m;
         }
+        public class ApplicationUser
+        {
+            public const int UserFirstNameMaxLength = 12;
+            public const int UserFirstNameMinLength = 1;
+
+            public const int UserLastNameMaxLength = 15;
+            public const int UserLastNameMinLength = 3;
+        }
     }
 }
