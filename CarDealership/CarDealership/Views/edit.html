@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Car Details</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Arial", sans-serif;
+        background-color: #222;
+        color: #fff;
+        overflow-x: hidden;
+      }
+
+      /* Navigation Menu */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333;
+        padding: 1rem 0.5rem;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 16px;
+        transition: color 0.3s ease;
+      }
+
+      .navbar a:hover {
+        color: #ff7e5f;
+      }
+
+      .logo {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      /* Edit Form Section */
+      .edit-form {
+        padding-top: 70px;
+        padding-bottom: 50px;
+        text-align: center;
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+
+      .edit-form h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      .form-container {
+        background-color: #333;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: left;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #444;
+        color: #fff;
+        font-size: 16px;
+      }
+
+      .form-group textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      .submit-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #ff7e5f;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      .submit-button:hover {
+        background-color: #e66b4e;
+        transform: scale(1.05);
+      }
+
+      /* Bright Color */
+      .bright {
+        color: #ff7e5f;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Menu -->
+    <div class="navbar">
+      <div class="logo">Car<span class="bright">Library</span></div>
+      <div>
+        <a href="#home">Home</a>
+        <a href="#catalog">Catalog</a>
+        <a href="#about">Login</a>
+        <a href="#contact">Register</a>
+        <a href="#contact">Logout</a>
+      </div>
+    </div>
+
+    <!-- Edit Form Section -->
+    <div class="edit-form">
+      <h1>Edit Car Details</h1>
+      <div class="form-container">
+        <form action="#" method="POST">
+          <div class="form-group">
+            <label for="brand">Brand:</label>
+            <input type="text" id="brand" name="brand" value="Tesla" required />
+          </div>
+          <div class="form-group">
+            <label for="model">Model:</label>
+            <input
+              type="text"
+              id="model"
+              name="model"
+              value="Model 3"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="year">Year:</label>
+            <input type="number" id="year" name="year" value="2022" required />
+          </div>
+          <div class="form-group">
+            <label for="fuelType">Fuel Type:</label>
+            <input
+              type="text"
+              id="fuelType"
+              name="fuelType"
+              value="Electric"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="kilometers">Kilometers Driven:</label>
+            <input
+              type="number"
+              id="kilometers"
+              name="kilometers"
+              value="15000"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="horsepower">Horsepower:</label>
+            <input
+              type="number"
+              id="horsepower"
+              name="horsepower"
+              value="279"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="dealership">Dealership:</label>
+            <input
+              type="text"
+              id="dealership"
+              name="dealership"
+              value="Tesla"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required>
+The Tesla Model 3 is a sleek and modern electric sedan designed for efficiency and performance. With its cutting-edge technology, long-range battery, and luxurious interior, it's the perfect choice for eco-conscious drivers who demand style and power.
+</textarea
+            >
+          </div>
+          <div class="form-group">
+            <label for="price">Price:</label>
+            <input
+              type="number"
+              id="price"
+              name="price"
+              value="45000"
+              step="0.01"
+              required
+            />
+          </div>
+          <button type="submit" class="submit-button">Save Changes</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

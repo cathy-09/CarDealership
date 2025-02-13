@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Details</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Arial", sans-serif;
+        background-color: #222;
+        color: #fff;
+        overflow-x: hidden;
+      }
+
+      /* Navigation Menu */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333;
+        padding: 1rem 0.5rem;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 16px;
+        transition: color 0.3s ease;
+      }
+
+      .navbar a:hover {
+        color: #ff7e5f;
+      }
+
+      .logo {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      /* Car Details Section */
+      .car-details {
+        padding-top: 70px;
+        padding-bottom: 50px;
+        text-align: center;
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+
+      .car-details h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      .car-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .car-image {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .car-image img {
+        width: 100%;
+        height: auto;
+      }
+
+      .car-specs {
+        background-color: #333;
+        padding: 20px;
+        border-radius: 10px;
+        width: 100%;
+        max-width: 600px;
+        text-align: left;
+      }
+
+      .car-specs h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .spec-item {
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+
+      .spec-item span {
+        font-weight: bold;
+      }
+
+      .description {
+        margin-top: 20px;
+        font-size: 18px;
+        padding-left: 15rem;
+        padding-right: 15rem;
+        line-height: 1.5;
+      }
+
+      .price {
+        margin-top: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #ff7e5f;
+      }
+
+      /* Buttons */
+      .buttons {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      .buttonwishlist {
+        background-color: #ff7e5f;
+        color: #fff;
+      }
+
+      .buttonedit {
+        background-color: #3498db;
+        color: #fff;
+      }
+
+      .buttondelete {
+        background-color: #e74c3c;
+        color: #fff;
+      }
+
+      .button:hover {
+        transform: scale(1.1);
+      }
+
+      /* Bright Color */
+      .bright {
+        color: #ff7e5f;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Menu -->
+    <div class="navbar">
+      <div class="logo">Car<span class="bright">Library</span></div>
+      <div>
+        <a href="#home">Home</a>
+        <a href="#catalog">Catalog</a>
+        <a href="#about">Login</a>
+        <a href="#contact">Register</a>
+        <a href="#contact">Logout</a>
+      </div>
+    </div>
+
+    <!-- Car Details Section -->
+    <div class="car-details">
+      <h1>Car Details</h1>
+      <div class="car-info">
+        <!-- Car Image -->
+        <div class="car-image">
+          <img
+            src="https://dreamcars77.com/wp-content/uploads/Tesla-Model-4-Long-Range-4x4-EU-34.jpg"
+            alt="Car Image"
+          />
+        </div>
+
+        <!-- Car Specifications -->
+        <div class="car-specs">
+          <h2>Specifications</h2>
+          <div class="spec-item"><span>Brand:</span> Tesla</div>
+          <div class="spec-item"><span>Model:</span> Model 3</div>
+          <div class="spec-item"><span>Year:</span> 2022</div>
+          <div class="spec-item"><span>Fuel Type:</span> Electric</div>
+          <div class="spec-item"><span>Kilometers Driven:</span> 15,000 km</div>
+          <div class="spec-item"><span>Horsepower:</span> 279 HP</div>
+          <div class="spec-item"><span>Dealership:</span> Tesla</div>
+        </div>
+
+        <!-- Car Description -->
+        <div class="description">
+          <p>
+            The Tesla Model 3 is a sleek and modern electric sedan designed for
+            efficiency and performance. With its cutting-edge technology,
+            long-range battery, and luxurious interior, it's the perfect choice
+            for eco-conscious drivers who demand style and power.
+          </p>
+        </div>
+
+        <!-- Car Price -->
+        <div class="price">Price: $45,000</div>
+
+        <!-- Buttons -->
+        <div class="buttons">
+          <button class="button buttonwishlist">Add to Wishlist</button>
+          <button class="button buttonedit">Edit</button>
+          <button class="button buttondelete">Delete</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
