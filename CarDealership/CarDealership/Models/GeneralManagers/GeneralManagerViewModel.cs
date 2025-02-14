@@ -12,6 +12,7 @@ namespace CarDealership.Models.GeneralManager
         public string PhoneNumber { get; set; }
         public string HireDate { get; set; }
         public decimal Salary { get; set; }
-        public List<Dealership> Dealerships { get; set; } = new List<Dealership>();
+        public int DealershipId { get; set; }
+        public Dealership Dealerships { get; set; }
     }
 }

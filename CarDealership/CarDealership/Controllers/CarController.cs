@@ -26,8 +26,8 @@ namespace CarDealership.Controllers
         public IActionResult Index()
         {
 
-            List<Car> films = FillBrand().OrderByDescending(x => x.CarId).ToList();
-            return View(films);
+            List<Car> cars = FillBrand().OrderByDescending(x => x.CarId).ToList();
+            return View(cars);
         }
 
         public List<Car> FillBrand()

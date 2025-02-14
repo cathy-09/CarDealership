@@ -11,6 +11,6 @@ namespace CarDealership.Models.GeneralManager
         public string HireDate { get; set; }
         public decimal Salary { get; set; }
         public int DealershipId { get; set; }
-        public Dealership Dealerships { get; set; }
+        public List<Dealership> Dealerships { get; set; } = new List<Dealership>();
     }
 }
