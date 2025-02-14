@@ -4,10 +4,30 @@ using Microsoft.AspNetCore.Identity;
 
 namespace CarDealership.Data.Models
 {
-    public class Employee
+    public class GeneralManager
     {
+        public GeneralManager()
+        {
+            
+        }
+        public GeneralManager(string firstName, 
+            string lastName, 
+            string email, 
+            string phoneNumber, 
+            string hireDate, 
+            decimal salary, 
+            int dealershipId)
+        {
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.Email = email;
+            this.PhoneNumber = phoneNumber;
+            this.HireDate = hireDate;
+            this.Salary = salary;
+            this.DealershipId = dealershipId;
+        }
         [Key]
-        public int EmployeeId { get; set; }
+        public int GeneralManagerId { get; set; }
 
         [Required]
         [MaxLength(FirstNameMaxLength)]
@@ -25,7 +45,7 @@ namespace CarDealership.Data.Models
         public string PhoneNumber { get; set; }
 
         [Required]
-        public DateTime HireDate { get; set; }
+        public string HireDate { get; set; }
 
         [Required]
         [Range((double)DataConstants.Employees.SalaryMin, (double)DataConstants.Employees.SalaryMax)]
@@ -33,7 +53,5 @@ namespace CarDealership.Data.Models
 
         public int DealershipId { get; set; }
         public Dealership Dealerships { get; set; }
-        public string UserId { get; set; } // FK ApplicationUser
-        public ApplicationUser User { get; set; }
     }
 }
