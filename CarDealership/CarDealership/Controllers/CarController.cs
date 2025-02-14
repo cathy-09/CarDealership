@@ -2,239 +2,163 @@
 using CarDealership.Data.Models;
 using CarDealership.Models.Cars;
 using CarDealership.Models.Dealerships;
+using Humanizer.Localisation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.IO;
+using static System.Net.WebRequestMethods;
+using System.Security.Claims;
+using static CarDealership.Common.AdminRole;
+using static CarDealership.Data.Models.Brand;
 
 namespace CarDealership.Controllers
 {
     public class CarController : Controller
     {
-        //private readonly CarDealershipDbContext _context;
+        private readonly CarDealershipDbContext _context;
 
-        //public CarController(CarDealershipDbContext carDealershipDbContext)
-        //{
-        //    _context = carDealershipDbContext;
-        //}
+        public CarController(CarDealershipDbContext carDealershipDbContext)
+        {
+            _context = carDealershipDbContext;
+        }
 
-        //public async Task<IActionResult> Index()
-        //{
-        //    var cars = await _context.Cars
-        //        .Include(c => c.DealershipsCars)
-        //        .ThenInclude(dc => dc.Dealership)
-        //        .ToListAsync();
+        public IActionResult Index()
+        {
 
-        //    return View(cars);
-        //}
+            List<Car> films = FillBrand().OrderByDescending(x => x.CarId).ToList();
+            return View(films);
+        }
 
-        //public async Task<IActionResult> All()
-        //{
-        //    var cars = await _context
-        //        .Cars
-        //        .Select(c => new AllCarsModel()
-        //        {
-        //            CarId = c.CarId,
-        //            Brand = c.Brand,
-        //            Model = c.Model,
-        //            Year = c.Year,
-        //            FuelType = c.FuelType,
-        //            Kilometers = c.Kilometers,
-        //            HorsePower = c.HorsePower,
-        //            Price = c.Price,
-        //            CarImageURL = c.CarImageURL
-        //        }).ToListAsync();
+        public List<Car> FillBrand()
+        {
+            List<Car> cars = _context.Cars.ToList();
+            foreach (var car in cars)
+            {
+                Brand brand = BrandById(car.BrandId);
+                car.Brand = brand;
+            }
+            return cars;
+        }
 
-        //    return View(cars);
-        //}
-        //private async Task<IEnumerable<DealershipsModel>> GetDealerships() => await _context.Dealerships
-        //        .Select(d => new DealershipsModel()
-        //        {
-        //            Id = d.DealershipId,
-        //            Name = d.Name
-        //        }).ToListAsync();
+        public Brand BrandById(int id)
+        {
+            List<Brand> brands = _context.Brands.ToList();
+            foreach (var brand in brands)
+            {
+                if (brand.BrandId == id)
+                {
+                    return brand;
+                }
+            }
+            return null!;
+        }
 
-        //public async Task<IActionResult> Create()
-        //{
-        //    CarFormModel carModel = new CarFormModel()
-        //    {
-        //        Dealerships = await GetDealerships()
-        //    };
-        //    return View(carModel);
-        //}
-        //[HttpPost]
-        //public async Task<IActionResult> Create(CarFormModel carModel)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        carModel.Dealerships = _context.Dealerships
-        //            .Select(d => new DealershipsModel { Id = d.DealershipId, Name = d.Name })
-        //            .ToList();
-        //        return View(carModel);
-        //    }
-        //    Car car = new Car()
-        //    {
-        //        Brand = carModel.Brand,
-        //        Model = carModel.Model,
-        //        Year = carModel.Year,
-        //        FuelType = carModel.FuelType,
-        //        Kilometers = carModel.Kilometers,
-        //        HorsePower = carModel.HorsePower,
-        //        Price = carModel.Price,
-        //        CarImageURL = carModel.CarImageURL
-        //    };
-        //    await _context.Cars.AddAsync(car);
-        //    await _context.SaveChangesAsync();
-        //    DealershipsCars dealershipCar = new DealershipsCars()
-        //    {
-        //        CarId = car.CarId,
-        //        DealershipId = carModel.DealershipId
-        //    };
-        //    await _context.DealershipsCars.AddAsync(dealershipCar);
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction("All", "Car");
-        //}
-        //public async Task<IActionResult> Details(int id)
-        //{
-        //    var car = await _context
-        //        .Cars
-        //        .Where(c => c.CarId == id)
-        //        .Select(c => new CarDetailsViewModel()
-        //        {
-        //            Id = c.CarId,
-        //            Brand = c.Brand,
-        //            Model = c.Model,
-        //            Year = c.Year,
-        //            FuelType = c.FuelType,
-        //            Kilometers = c.Kilometers,
-        //            HorsePower = c.HorsePower,
-        //            Price = c.Price,
-        //            CarImageURL = c.CarImageURL,
-        //            Description = c.Description,
-        //            Dealerships = c.DealershipsCars
-        //                .Select(dc => dc.Dealership.Name)
-        //                .ToList()
-        //        })
-        //        .FirstOrDefaultAsync();
+        [HttpGet]
+        [Authorize(Roles = AdminRoleName)]
+        public async Task<IActionResult> Create()
+        {
+            List<Brand> brands = await _context.Brands.ToListAsync();
 
-        //    if (car == null)
-        //    {
-        //        return BadRequest();
-        //    }
+            CarCreateViewModel carCreateViewModel = new CarCreateViewModel();
+            carCreateViewModel.Brands = brands;
+            return View(carCreateViewModel);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Create(CarCreateViewModel carCreateViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(carCreateViewModel);
+            }
 
-        //    return View(car);
-        //}
+            Car car = new Car(carCreateViewModel.BrandId,
+                carCreateViewModel.Model,
+                carCreateViewModel.CarImageURL,
+                carCreateViewModel.Year,
+                carCreateViewModel.FuelType,
+                carCreateViewModel.Kilometers,
+                carCreateViewModel.HorsePower,
+                carCreateViewModel.Description,
+                carCreateViewModel.Price);
 
-        //public async Task<IActionResult> Edit(int id)
-        //{
-        //    var car = await _context.Cars.FindAsync(id);
-        //    if (car == null)
-        //    {
-        //        return BadRequest();
-        //    }
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            car.UserId = userId;
+            await _context.Cars.AddAsync(car);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index", "Car");
+        }
 
-        //    EditCarsModel carModel = new EditCarsModel()
-        //    {
-        //        CarId = car.CarId,
-        //        Brand = car.Brand,
-        //        Model = car.Model,
-        //        Year = car.Year,
-        //        FuelType = car.FuelType,
-        //        Kilometers = car.Kilometers,
-        //        HorsePower = car.HorsePower,
-        //        Price = car.Price,
-        //        CarImageURL = car.CarImageURL,
-        //        Description = car.Description,
-        //        DealershipId = car.DealershipsCars.FirstOrDefault()?.DealershipId ?? 0,
-        //        Dealerships = await GetDealerships() 
-        //    };
+        [HttpGet]
+        [Authorize(Roles = AdminRoleName)]
+        public async Task<IActionResult> Edit(int id)
+        {
 
-        //    return View(carModel);
-        //}
+            Car cars = _context.Cars.Find(id);
+            if (cars == null)
+            {
+                return RedirectToAction("Index", "Car");
+            }
+            CarCreateViewModel carCreateViewModel = new CarCreateViewModel()
+            {
+                Model = cars.Model,
+                CarImageURL = cars.CarImageURL,
+                Year = cars.Year,
+                FuelType = cars.FuelType,
+                Kilometers = cars.Kilometers,
+                HorsePower = cars.HorsePower,
+                Description = cars.Description,
+                Price = cars.Price,
+                BrandId = cars.BrandId,
+            };
+            ViewData["CarId"] = cars.CarId;
+            List<Brand> brands = await _context.Brands.ToListAsync();
 
-        //[HttpPost]
-        //public async Task<IActionResult> Edit(int id, EditCarsModel carModel)
-        //{
-        //    var car = await _context.Cars.FindAsync(id);
-        //    if (car == null)
-        //    {
-        //        return BadRequest();
-        //    }
+            carCreateViewModel.Brands = brands;
+            return View(carCreateViewModel);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, CarCreateViewModel carCreateViewModel)
+        {
+            Car cars = _context.Cars.Find(id);
+            if (cars == null)
+            {
+                return RedirectToAction("Index", "Car");
+            }
 
-        //    if (!(await GetDealerships()).Any(d => d.Id == carModel.DealershipId))
-        //    {
-        //        ModelState.AddModelError(nameof(carModel.DealershipId), "Dealership does not exist.");
-        //    }
+            if (!ModelState.IsValid)
+            {
+                ViewData["CarId"] = cars.CarId;
 
-        //    if (!ModelState.IsValid)
-        //    {
-        //        carModel.Dealerships = await GetDealerships();
-        //        return View(carModel);
-        //    }
+                return View(cars);
+            }
+            cars.Model = carCreateViewModel.Model;
+            cars.CarImageURL = carCreateViewModel.CarImageURL;
+            cars.Year = carCreateViewModel.Year;
+            cars.FuelType = carCreateViewModel.FuelType;
+            cars.Kilometers = carCreateViewModel.Kilometers;
+            cars.HorsePower = carCreateViewModel.HorsePower;
+            cars.Description = carCreateViewModel.Description;
+            cars.Price = carCreateViewModel.Price;
+            cars.BrandId = carCreateViewModel.BrandId;
 
-        //    car.Brand = carModel.Brand;
-        //    car.Model = carModel.Model;
-        //    car.Year = carModel.Year;
-        //    car.FuelType = carModel.FuelType;
-        //    car.Kilometers = carModel.Kilometers;
-        //    car.HorsePower = carModel.HorsePower;
-        //    car.Price = carModel.Price;
-        //    car.CarImageURL = carModel.CarImageURL;
-        //    car.Description = carModel.Description;
+            await _context.SaveChangesAsync();
 
-        //    var carDealership = _context.DealershipsCars.FirstOrDefault(dc => dc.CarId == car.CarId);
-        //    if (carDealership != null)
-        //    {
-        //        carDealership.DealershipId = carModel.DealershipId;
-        //    }
+            return RedirectToAction("Index", "Car");
+        }
 
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction("All", "Car");
-        //}
-
-        //private bool CarExists(int id)
-        //{
-        //    return _context.Cars.Any(e => e.CarId == id);
-        //}
-        //public async Task<IActionResult> Delete(int id)
-        //{
-        //    var car = await _context.Cars.FindAsync(id);
-        //    if (car == null)
-        //    {
-        //        return BadRequest();
-        //    }
-
-        //    DeleteCarsModel carModel = new DeleteCarsModel()
-        //    {
-        //        CarId = car.CarId,
-        //        Brand = car.Brand,
-        //        Model = car.Model,
-        //        Year = car.Year,
-        //        FuelType = car.FuelType,
-        //        Kilometers = car.Kilometers,
-        //        HorsePower = car.HorsePower,
-        //        Price = car.Price,
-        //        CarImageURL = car.CarImageURL,
-        //        Description = car.Description
-        //    };
-
-        //    return View(carModel);
-        //}
-        //[HttpPost]
-        //public async Task<IActionResult> Delete(DeleteCarsModel carModel)
-        //{
-        //    var car = await _context.Cars.FindAsync(carModel.CarId);
-        //    if (car == null)
-        //    {
-        //        return BadRequest();
-        //    }
-
-        //    var carDealerships = _context.DealershipsCars.Where(dc => dc.CarId == car.CarId);
-        //    _context.DealershipsCars.RemoveRange(carDealerships);
-
-        //    _context.Cars.Remove(car);
-        //    await _context.SaveChangesAsync();
-
-        //    return RedirectToAction("All", "Car");
-        //}
-
+        [HttpGet]
+        [Authorize(Roles = AdminRoleName)]
+        public IActionResult Delete(int id)
+        {
+            Car car = _context.Cars.Find(id);
+            if (car == null)
+            {
+                return RedirectToAction("Index", "Car");
+            }
+            _context.Cars.Remove(car);
+            _context.SaveChanges(true);
+            return RedirectToAction("Index", "Car");
+        }
     }
 }

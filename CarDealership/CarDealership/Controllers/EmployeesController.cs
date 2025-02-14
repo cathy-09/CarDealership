@@ -1,6 +1,6 @@
 ﻿using CarDealership.Data;
 using CarDealership.Data.Models;
-using CarDealership.Models.Employees;
+using CarDealership.Models.GeneralManager;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
