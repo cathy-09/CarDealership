@@ -6,6 +6,16 @@ namespace CarDealership.Data.Models
 {
     public class DealershipsCars
     {
+        public DealershipsCars()
+        {
+            
+        }
+        public DealershipsCars(int carId, 
+            int dealershipId)
+        {
+            this.CarId = carId;
+            this.DealershipId = dealershipId;
+        }
         [Required]
         public int CarId { get; set; }
 

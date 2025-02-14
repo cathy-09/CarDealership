@@ -115,11 +115,11 @@ namespace CarDealership.Data.Migrations
 
             modelBuilder.Entity("CarDealership.Data.Models.Employee", b =>
                 {
-                    b.Property<int>("EmployeeId")
+                    b.Property<int>("GeneralManagerId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EmployeeId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GeneralManagerId"), 1L, 1);
 
                     b.Property<int>("DealershipId")
                         .HasColumnType("int");
@@ -154,7 +154,7 @@ namespace CarDealership.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("EmployeeId");
+                    b.HasKey("GeneralManagerId");
 
                     b.HasIndex("DealershipId");
 

@@ -25,7 +25,7 @@ namespace CarDealership.Controllers
                 .Include(e => e.Dealerships)
                 .Select(e => new EmployeeListViewModel
                 {
-                    EmployeeId = e.EmployeeId,
+                    EmployeeId = e.GeneralManagerId,
                     FirstName = e.FirstName,
                     LastName = e.LastName,
                     Email = e.Email,
@@ -55,7 +55,7 @@ namespace CarDealership.Controllers
                 return View(model);
             }
 
-            var employee = new Employee()
+            var employee = new GeneralManager()
             {
                 FirstName = model.FirstName,
                 LastName = model.LastName,
@@ -125,7 +125,7 @@ namespace CarDealership.Controllers
 
             var model = new EmployeeDeleteViewModel()
             {
-                EmployeeId = employee.EmployeeId,
+                EmployeeId = employee.GeneralManagerId,
                 FirstName = employee.FirstName,
                 LastName = employee.LastName,
                 Email = employee.Email

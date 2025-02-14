@@ -5,6 +5,17 @@ namespace CarDealership.Data.Models
 {
     public class Dealership
     {
+        public Dealership()
+        {
+            
+        }
+        public Dealership(string name,
+            string location)
+        {
+            this.Name = name;
+            this.Location = location;
+        }
+
         [Key]
         public int DealershipId { get; set; }
 
@@ -16,7 +27,7 @@ namespace CarDealership.Data.Models
         [MaxLength(LocationMaxLenght)]
         public string Location { get; set; }
 
-        public ICollection<DealershipsCars> DealershipsCars { get; set; } = new List<DealershipsCars>();
-        public ICollection<Employee> Employees { get; set; }
+        public ICollection<DealershipsCars> DealershipsCars { get; set; }
+        public ICollection<GeneralManager> GeneralManagers { get; set; }
     }
 }

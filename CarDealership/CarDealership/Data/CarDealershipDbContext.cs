@@ -15,7 +15,7 @@ namespace CarDealership.Data
         public DbSet<Car> Cars { get; set; }
         public DbSet<Dealership> Dealerships { get; set; }
         public DbSet<DealershipsCars> DealershipsCars { get; set; }
-        public DbSet<Employee> Employees { get; set; }
+        public DbSet<GeneralManager> Employees { get; set; }
 
         // Remove seeding from here
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -24,15 +24,15 @@ namespace CarDealership.Data
             modelBuilder.Entity<IdentityUser>()
                 .HasData(GuestUser);
 
-            modelBuilder.Entity<Employee>()
+            modelBuilder.Entity<GeneralManager>()
                 .HasOne(e => e.Dealerships)
                 .WithMany(d => d.Employees)
                 .HasForeignKey("DealershipId");
 
-            modelBuilder.Entity<Employee>()
+            modelBuilder.Entity<GeneralManager>()
                 .HasOne(e => e.User)
                 .WithOne(u => u.Employee)
-                .HasForeignKey<Employee>(e => e.UserId)
+                .HasForeignKey<GeneralManager>(e => e.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<DealershipsCars>()
