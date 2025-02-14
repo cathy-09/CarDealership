@@ -74,7 +74,7 @@ namespace CarDealership.Data.Models
         public decimal Price { get; set; }
 
         [Required]
-        public string UserID { get; set; } = null!;
+        public string UserId { get; set; } = null!;
         public IdentityUser User { get; set; } = null!;
 
         public ICollection<DealershipsCars> DealershipsCars { get; set; }

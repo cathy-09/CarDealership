@@ -1,4 +1,4 @@
-﻿using static CarDealership.Data.DataConstants.Employees;
+﻿using static CarDealership.Data.DataConstants.GeneralManagers;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
 
@@ -48,7 +48,7 @@ namespace CarDealership.Data.Models
         public string HireDate { get; set; }
 
         [Required]
-        [Range((double)DataConstants.Employees.SalaryMin, (double)DataConstants.Employees.SalaryMax)]
+        [Range((double)DataConstants.GeneralManagers.SalaryMin, (double)DataConstants.GeneralManagers.SalaryMax)]
         public decimal Salary { get; set; }
 
         public int DealershipId { get; set; }
