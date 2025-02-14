@@ -142,6 +142,7 @@ namespace CarDealership.Data
                     LastName = "Carter",
                     Email="james.carter@email.com",
                     PhoneNumber = "+44 7512 345678",
+                    HireDate = "08/04/2020",
                     Salary = 5000.00m,
                     DealershipId = DealershipsList[0].DealershipId
                 },
@@ -152,6 +153,7 @@ namespace CarDealership.Data
                     LastName = "Johnson",
                     Email="emily.johnson@email.com",
                     PhoneNumber = "+1 415-555-1234",
+                    HireDate = "11/11/2020",
                     Salary = 3000.00m,
                     DealershipId = DealershipsList[1].DealershipId
                 },
@@ -161,6 +163,7 @@ namespace CarDealership.Data
                     FirstName = "Lucas",
                     LastName = "Bennett",
                     Email="jrlucas.bennett@email.com",
+                    HireDate = "28/02/2020",
                     PhoneNumber = "+1 202-555-4321",
                     Salary = 10000.00m,
                     DealershipId = DealershipsList[2].DealershipId
@@ -171,6 +174,7 @@ namespace CarDealership.Data
                     FirstName = "Charlotte",
                     LastName = "Robinson",
                     Email="charlotte.robinson@email.com",
+                    HireDate = "21/06/2020",
                     PhoneNumber = "+44 7700 987654",
                     Salary = 900000m,
                     DealershipId = DealershipsList[3].DealershipId
