@@ -169,7 +169,7 @@ namespace CarDealership.Data.Migrations
                             Kilometers = 399138,
                             Model = "Octavia 2",
                             Price = 6500.00m,
-                            UserId = "2c2b663a-2125-4c84-8f72-6e7c09bb4a31",
+                            UserId = "24f43d20-2967-4889-9aa0-bb74cedf12ea",
                             Year = 2008
                         },
                         new
@@ -183,7 +183,7 @@ namespace CarDealership.Data.Migrations
                             Kilometers = 206000,
                             Model = "X5",
                             Price = 22000.00m,
-                            UserId = "2c2b663a-2125-4c84-8f72-6e7c09bb4a31",
+                            UserId = "24f43d20-2967-4889-9aa0-bb74cedf12ea",
                             Year = 2011
                         },
                         new
@@ -197,7 +197,7 @@ namespace CarDealership.Data.Migrations
                             Kilometers = 174000,
                             Model = "Octavia 3",
                             Price = 35000.00m,
-                            UserId = "2c2b663a-2125-4c84-8f72-6e7c09bb4a31",
+                            UserId = "24f43d20-2967-4889-9aa0-bb74cedf12ea",
                             Year = 2016
                         },
                         new
@@ -211,7 +211,7 @@ namespace CarDealership.Data.Migrations
                             Kilometers = 232000,
                             Model = "A6",
                             Price = 34500.00m,
-                            UserId = "2c2b663a-2125-4c84-8f72-6e7c09bb4a31",
+                            UserId = "24f43d20-2967-4889-9aa0-bb74cedf12ea",
                             Year = 2015
                         });
                 });
@@ -532,31 +532,31 @@ namespace CarDealership.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2c2b663a-2125-4c84-8f72-6e7c09bb4a31",
+                            Id = "24f43d20-2967-4889-9aa0-bb74cedf12ea",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5f133456-ef37-415e-b590-0bd051c8a235",
+                            ConcurrencyStamp = "c8cdcf07-5b6b-410c-b3bb-a69011c22ff8",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "GuestUser@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFR09sB2iYzZItPJGoFwlm606zpSv+7V2Zrj0Y1TQZ3zjaXSFsxEtN/sYMuOXtoMZQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJTQtT7Em5pIF1QkBo66UFJ458bXM4/7BOBWNd2e01MHTnduVFg/Tn7nGILDXPSOWQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c205f87a-acda-4d85-8375-303a38aecb50",
+                            SecurityStamp = "3a6c3631-573d-4885-861e-385588b6e438",
                             TwoFactorEnabled = false,
                             UserName = "GuestUser@gmail.com"
                         },
                         new
                         {
-                            Id = "5496f43d-eb26-46bc-a2c6-7156faf158ad",
+                            Id = "50944a8a-62d7-4330-a583-81088fc8e52c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b5861449-fa02-4258-a6e3-fdf2f8cfffda",
+                            ConcurrencyStamp = "bb1b388d-a594-4d58-80e3-f80516b976f5",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@gmail.com",
                             NormalizedUserName = "admin@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDHs1ysIrutpUdLyBIBzoEzhfgNVbd4xhbOwKjhj7MeEJUB+wF40tqU2ENvDNJr7+Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBNw6P5dGeeqqFQhZsTS4JcZ6T+3z2XzpWEUlIplv12M6K755wcya/JONzxFpGetZQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "735b54b6-d5c4-4fd7-92b7-225f657d327e",
+                            SecurityStamp = "ccf6c97a-1388-44e9-b191-fb924f7248ad",
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com"
                         });

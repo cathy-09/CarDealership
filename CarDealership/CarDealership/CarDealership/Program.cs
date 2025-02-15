@@ -16,8 +16,17 @@ namespace CarDealership
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<CarDealershipDbContext>();
+            builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireLowercase = false;
+            })
+                 .AddRoles<IdentityRole>()
+                 .AddEntityFrameworkStores<CarDealershipDbContext>();
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
