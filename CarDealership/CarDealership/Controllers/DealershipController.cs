@@ -28,7 +28,7 @@ namespace CarDealership.Controllers
             return View(dealerships);
         }
         [HttpGet]
-        //[Authorize(Roles = AdminRoleName)]
+        [Authorize(Roles = AdminRoleName)]
         public IActionResult Create()
         {
             return View();
@@ -52,7 +52,7 @@ namespace CarDealership.Controllers
             return RedirectToAction("Index", "Dealership");
         }
         [HttpGet]
-        //[Authorize(Roles = AdminRoleName)]
+        [Authorize(Roles = AdminRoleName)]
         public IActionResult Edit(int id)
         {
             var dealership = _context.Dealerships.Find(id);
@@ -90,7 +90,7 @@ namespace CarDealership.Controllers
             return RedirectToAction("Index", "Dealership");
         }
         [HttpGet]
-        //[Authorize(Roles = AdminRoleName)]
+        [Authorize(Roles = AdminRoleName)]
         public IActionResult Delete(int id)
         {
             var dealership = _context.Dealerships.Find(id);

@@ -6,7 +6,10 @@
 
 <div class="row mb-5">
     <div class="col">
-        <center><a class="btn btn-primary" asp-area="" asp-controller="DealershipsCars" asp-action="Create" style="padding: 6px 12px; border-radius: 5px; cursor: pointer;">New DealershipCar</a></center>
+         @if (User.IsInRole(AdminRoleName))
+        {
+            <center><a class="btn btn-primary" asp-area="" asp-controller="DealershipsCars" asp-action="Create" style="padding: 6px 12px; border-radius: 5px; cursor: pointer;">New DealershipCar</a></center>
+        }
     </div>
 </div>
 

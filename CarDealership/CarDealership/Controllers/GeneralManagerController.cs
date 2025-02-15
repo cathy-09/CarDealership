@@ -54,7 +54,7 @@ namespace CarDealership.Controllers
         //}
 
         [HttpGet]
-        //[Authorize(Roles = AdminRoleName)]
+        [Authorize(Roles = AdminRoleName)]
         public async Task<IActionResult> Create()
         {
             List<Dealership> dealerships = await _context.Dealerships.ToListAsync();
@@ -86,7 +86,7 @@ namespace CarDealership.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = AdminRoleName)]
+        [Authorize(Roles = AdminRoleName)]
         public async Task<IActionResult> Edit(int id)
         {
             GeneralManager generalManager = _context.GeneralManagers.Find(id);
@@ -139,7 +139,7 @@ namespace CarDealership.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = AdminRoleName)]
+        [Authorize(Roles = AdminRoleName)]
         public IActionResult Delete(int id)
         {
             GeneralManager generalManager = _context.GeneralManagers.Find(id);

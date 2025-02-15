@@ -64,7 +64,7 @@ namespace CarDealership.Controllers
             return null!;
         }
         [HttpGet]
-        //[Authorize(Roles = AdminRoleName)]
+        [Authorize(Roles = AdminRoleName)]
         public async Task<IActionResult> Create()
         {
             List<Car> cars = await _context.Cars
@@ -84,24 +84,19 @@ namespace CarDealership.Controllers
             {
                 return View(dealershipsCarsViewModel);
             }
-
-            // Зареждаме съответните обекти
             var car = await _context.Cars.Include(c => c.Brand).FirstOrDefaultAsync(c => c.CarId == dealershipsCarsViewModel.CarId);
             var dealership = await _context.Dealerships.FirstOrDefaultAsync(d => d.DealershipId == dealershipsCarsViewModel.DealershipId);
 
             if (car == null || dealership == null)
             {
-                // Ако някой от тях не съществува, връщаме грешка
                 ModelState.AddModelError("", "The selected car or dealership does not exist.");
                 return View(dealershipsCarsViewModel);
             }
 
-            // Създаваме новия запис в DealershipsCars
             DealershipsCars dealershipsCars = new DealershipsCars(dealershipsCarsViewModel.CarId, dealershipsCarsViewModel.DealershipId);
 
-            // Добавяме записа в контекста на базата
             await _context.DealershipsCars.AddAsync(dealershipsCars);
-            await _context.SaveChangesAsync();  // Записваме промените в базата данни
+            await _context.SaveChangesAsync();  
 
             return RedirectToAction("Index", "DealershipsCars");
         }

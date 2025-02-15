@@ -55,7 +55,7 @@ namespace CarDealership.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = AdminRoleName)]
+        [Authorize(Roles = AdminRoleName)]
         public async Task<IActionResult> Create()
         {
             List<Brand> brands = await _context.Brands.ToListAsync();
@@ -90,7 +90,7 @@ namespace CarDealership.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = AdminRoleName)]
+        [Authorize(Roles = AdminRoleName)]
         public async Task<IActionResult> Edit(int id)
         {
 
@@ -148,7 +148,7 @@ namespace CarDealership.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = AdminRoleName)]
+        [Authorize(Roles = AdminRoleName)]
         public IActionResult Delete(int id)
         {
             Car car = _context.Cars.Find(id);
