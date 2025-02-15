@@ -2,7 +2,49 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!-- Основен контейнер с фона, без да се прилага снимката към навигационната лента -->
+<div class="container-fluid bg-primary text-white p-5" style="background-image: url('https://images.unsplash.com/photo-1574023240744-64c47c8c0676?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center;">
+    <div class="text-center">
+        <h1 class="display-4 mb-4">Welcome to Car Dealership</h1>
+        <p class="lead mb-4">Explore the world of cars and dealerships with our easy-to-use platform!</p>
+
+        <!-- Добавяме красив бутон с анимация -->
+        <a href="https://docs.microsoft.com/aspnet/core" class="btn btn-light btn-lg" style="border-radius: 50px; padding: 15px 30px; transition: background-color 0.3s ease;">
+            Learn More
+        </a>
+    </div>
 </div>
+
+<!-- Прекрасен раздел с вторичен контекст -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <h3>About Our Platform</h3>
+            <p>Our platform allows you to browse through a variety of cars, view dealership details, and interact with general managers. Everything you need to find your perfect car is just a few clicks away!</p>
+        </div>
+        <div class="col-md-6 mb-4">
+            <h3>Get Started Today</h3>
+            <p>Ready to explore our vast collection? Start browsing now and experience a seamless, engaging way to shop for cars and much more!</p>
+        </div>
+    </div>
+</div>
+
+<!-- Допълнителен стил за анимации и красиви ефекти -->
+<style>
+    .btn-lg:hover {
+        background-color: #ff6f61;
+        color: #fff;
+        transform: scale(1.1);
+    }
+
+    /* Стил за фон на основния контейнер */
+    .container-fluid {
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* Стил за навигационната лента, без фон */
+    nav {
+        background-color: rgba(0, 0, 0, 0.7); /* Прозрачен черен фон */
+    }
+</style>
