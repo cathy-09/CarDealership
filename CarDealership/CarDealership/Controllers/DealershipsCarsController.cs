@@ -64,7 +64,7 @@ namespace CarDealership.Controllers
             return null!;
         }
         [HttpGet]
-        [Authorize(Roles = AdminRoleName)]
+        //[Authorize(Roles = AdminRoleName)]
         public async Task<IActionResult> Create()
         {
             List<Car> cars = await _context.Cars.ToListAsync();
