@@ -4,6 +4,7 @@ using CarDealership.Models.Brands;
 using Humanizer.Localisation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using static CarDealership.Common.AdminRole;
 
 namespace CarDealership.Controllers
@@ -17,9 +18,13 @@ namespace CarDealership.Controllers
         }
         public IActionResult Index()
         {
-            var brands = _context.Brands.OrderByDescending(x => x.BrandId).ToList();
-            return View(brands);
-        }
+			var brands = _context.Brands
+			.Include(d => d.Cars)
+			.OrderByDescending(x => x.BrandId)
+			.ToList();
+
+			return View(brands);
+		}
         [HttpGet]
         //[Authorize(Roles = AdminRoleName)]
         public IActionResult Create()

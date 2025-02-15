@@ -17,6 +17,23 @@
         <div class="car-card card">
             <div class="card-body">
                 <h5 class="card-title">@brand.BrandName</h5>
+                <p class="card-text">
+                    <strong style="font-size = 16px;">Models:</strong><br>
+                    <!-- Проверяваме дали има модели за тази марка -->
+                    @if (brand.Cars != null && brand.Cars.Any())
+                    {
+                        <ul>
+                            @foreach (var models in brand.Cars)
+                            {
+                                <li>@models.Model</li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                    <p>No Models assigned</p>
+                    }
+                </p>
             </div>
             <div class="card-footer">
                 <a class="btn btn-warning btn-sm" asp-controller="Brand" asp-action="Edit" asp-route-id="@brand.BrandId">Edit</a>
