@@ -213,13 +213,19 @@ button.btn-primary {
 
 
 
-* {
-    padding: 0;
-    margin: 0;
-}
+
+
+
+
+
+
+
+
+
+
 
 html {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 @media (min-width: 768px) {
