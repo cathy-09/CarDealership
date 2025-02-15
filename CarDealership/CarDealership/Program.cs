@@ -11,10 +11,9 @@ namespace CarDealership
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             builder.Services.AddDbContext<CarDealershipDbContext>(options =>
                 options.UseSqlServer(connectionString));
-
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options =>
@@ -25,8 +24,8 @@ namespace CarDealership
                 options.Password.RequireUppercase = false;
                 options.Password.RequireLowercase = false;
             })
-                .AddRoles<IdentityRole>()
-                .AddEntityFrameworkStores<CarDealershipDbContext>();
+                 .AddRoles<IdentityRole>()
+                 .AddEntityFrameworkStores<CarDealershipDbContext>();
 
             builder.Services.AddControllersWithViews();
 

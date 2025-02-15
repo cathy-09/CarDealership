@@ -6,9 +6,6 @@
     gap: 20px; /* Разстояние между картите */
     padding: 20px;
     scroll-behavior: smooth; /* Плавен скрол */
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-    align-items: center; /* Centers vertically */
 }
 
 /* Дизайн на самата карта */
@@ -213,10 +210,14 @@ button.btn-primary {
 
 
 
-* {
-    padding: 0;
-    margin: 0;
-}
+
+
+
+
+
+
+
+
 
 html {
     font-size: 14px;
