@@ -18,7 +18,13 @@ namespace CarDealership.Controllers
         }
         public IActionResult Index()
         {
-            List<DealershipsCars> dealershipsCars = FillDealershipsCars().OrderByDescending(x => x.CarId).ToList();
+            var dealershipsCars = _context.DealershipsCars
+            .Include(dc => dc.Car)
+            .ThenInclude(c => c.Brand)
+            .Include(dc => dc.Dealership)
+            .OrderByDescending(dc => dc.CarId)
+            .ToList();
+
             return View(dealershipsCars);
         }
         public List<DealershipsCars> FillDealershipsCars()
