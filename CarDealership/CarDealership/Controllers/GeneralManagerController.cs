@@ -21,37 +21,40 @@ namespace CarDealership.Controllers
 
         public IActionResult Index()
         {
+            List<GeneralManager> generalManagers = _context.GeneralManagers
+           .Include(gm => gm.Dealerships)  // Включваме Dealerships
+           .OrderByDescending(x => x.GeneralManagerId)
+           .ToList();
 
-            List<GeneralManager> generalManagers = FillDealership().OrderByDescending(x => x.GeneralManagerId).ToList();
             return View(generalManagers);
         }
 
-        public List<GeneralManager> FillDealership()
-        {
-            List<GeneralManager> generalManagers = _context.GeneralManagers.ToList();
-            foreach (var dealerships in generalManagers)
-            {
-                Dealership dealership = DealershipById(dealerships.DealershipId);
-                dealerships.Dealerships = dealership;
-            }
-            return generalManagers;
-        }
+        //public List<GeneralManager> FillDealership()
+        //{
+        //    List<GeneralManager> generalManagers = _context.GeneralManagers.ToList();
+        //    foreach (var dealerships in generalManagers)
+        //    {
+        //        Dealership dealership = DealershipById(dealerships.DealershipId);
+        //        dealerships.Dealerships = dealership;
+        //    }
+        //    return generalManagers;
+        //}
 
-        public Dealership DealershipById(int id)
-        {
-            List<Dealership> dealerships = _context.Dealerships.ToList();
-            foreach (var dealership in dealerships)
-            {
-                if (dealership.DealershipId == id)
-                {
-                    return dealership;
-                }
-            }
-            return null!;
-        }
+        //public Dealership DealershipById(int id)
+        //{
+        //    List<Dealership> dealerships = _context.Dealerships.ToList();
+        //    foreach (var dealership in dealerships)
+        //    {
+        //        if (dealership.DealershipId == id)
+        //        {
+        //            return dealership;
+        //        }
+        //    }
+        //    return null!;
+        //}
 
         [HttpGet]
-        [Authorize(Roles = AdminRoleName)]
+        //[Authorize(Roles = AdminRoleName)]
         public async Task<IActionResult> Create()
         {
             List<Dealership> dealerships = await _context.Dealerships.ToListAsync();
@@ -83,7 +86,7 @@ namespace CarDealership.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = AdminRoleName)]
+        //[Authorize(Roles = AdminRoleName)]
         public async Task<IActionResult> Edit(int id)
         {
             GeneralManager generalManager = _context.GeneralManagers.Find(id);
@@ -136,7 +139,7 @@ namespace CarDealership.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = AdminRoleName)]
+        //[Authorize(Roles = AdminRoleName)]
         public IActionResult Delete(int id)
         {
             GeneralManager generalManager = _context.GeneralManagers.Find(id);
