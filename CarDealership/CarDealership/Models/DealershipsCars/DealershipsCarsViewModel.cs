@@ -9,5 +9,7 @@ namespace CarDealership.Models.DealershipsCars
 
         public List<Car> Cars { get; set; } = new List<Car>();
         public List<Dealership> Dealerships { get; set; } = new List<Dealership>();
+        //public List<Brand> Brands { get; set; } = new List<Brand>();
+
     }
 }

@@ -2,42 +2,40 @@
 @model CarDealership.Models.DealershipsCars.DealershipsCarsViewModel;
 
 <div class="row">
-	<div class="col-md-8 mx-auto rounded border p-3">
-		<h2 class="text-center mb-5">New Dealership-Car</h2>
-		<form method="post" enctype="multipart/form-data">
-			<div class="row mb-3">
-				<label class="col-sm-4 col-form-label">Car</label>
-				<div class="col-sm-8">
-					<select class="form-control" asp-for="@Model.CarId">
-						<option value="">Select Car</option>
-						@foreach (var car in Model.Cars)
-						{
-							<option value="@car.CarId">@car.Brand.BrandName</option>
-						}
-					</select>
-				</div>
-			</div>
-			<div class="row mb-3>">
-				<label class="col-sm-4 col-form-label">Dealership</label>
-				<div class="col-sm-8">
-					<select class="form-control" asp-for="@Model.CarId">
-						<option value="">Select Dealership</option>
-						@foreach (var dealership in Model.Dealerships)
-						{
-							<option value="@dealership.DealershipId">@dealership.Name</option>
-						}
-					</select>
-					<span asp-validation-for="@Model.DealershipId" class="text-danger"></span>
-				</div>
-			</div>
-			<div class="row d-flex justify-content-center gap-3">
-				<button type="submit" class="btn btn-primary w-50">Publish</button>
-				<a class="btn btn-outline-primary w-50" asp-controller="DealershipsCars" asp-action="Index" role="button">
-					Cancel
-				</a>
-			</div
-		</form>
-	</div>
+    <div class="col-md-8 mx-auto rounded border p-3">
+        <h2 class="text-center mb-5">New Dealership-Car</h2>
+        <form method="post" enctype="multipart/form-data">
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Car</label>
+                <div class="col-sm-8">
+                    <select class="form-control" asp-for="CarId">
+                        <option value="">Select Car</option>
+                        @foreach (var car in Model.Cars)
+                        {
+                            <option value="@car.CarId">@car.Brand.BrandName @car.Model</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Dealership</label>
+                <div class="col-sm-8">
+                    <select class="form-control" asp-for="DealershipId">
+                        <option value="">Select Dealership</option>
+                        @foreach (var dealership in Model.Dealerships)
+                        {
+                            <option value="@dealership.DealershipId">@dealership.Name</option>
+                        }
+                    </select>
+                    <span asp-validation-for="DealershipId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center gap-3">
+                <button type="submit" class="btn btn-primary w-50">Publish</button>
+                <a class="btn btn-outline-primary w-50" asp-controller="DealershipsCars" asp-action="Index" role="button">
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </div>
 </div>
-
-

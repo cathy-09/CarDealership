@@ -20,11 +20,15 @@ namespace CarDealership.Controllers
         }
         public IActionResult Index()
         {
-            var dealerships = _context.Dealerships.OrderByDescending(x => x.DealershipId).ToList();
+            var dealerships = _context.Dealerships
+            .Include(d => d.GeneralManagers)
+            .OrderByDescending(x => x.DealershipId)
+            .ToList();
+
             return View(dealerships);
         }
         [HttpGet]
-        [Authorize(Roles = AdminRoleName)]
+        //[Authorize(Roles = AdminRoleName)]
         public IActionResult Create()
         {
             return View();
@@ -48,7 +52,7 @@ namespace CarDealership.Controllers
             return RedirectToAction("Index", "Dealership");
         }
         [HttpGet]
-        [Authorize(Roles = AdminRoleName)]
+        //[Authorize(Roles = AdminRoleName)]
         public IActionResult Edit(int id)
         {
             var dealership = _context.Dealerships.Find(id);
@@ -86,7 +90,7 @@ namespace CarDealership.Controllers
             return RedirectToAction("Index", "Dealership");
         }
         [HttpGet]
-        [Authorize(Roles = AdminRoleName)]
+        //[Authorize(Roles = AdminRoleName)]
         public IActionResult Delete(int id)
         {
             var dealership = _context.Dealerships.Find(id);

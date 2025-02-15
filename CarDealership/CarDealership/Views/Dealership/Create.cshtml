@@ -1,0 +1,38 @@
+﻿@using CarDealership.Models.Dealerships;
+@model DealershipViewModel;
+
+<div class="row">
+	<div class="col-md-8 mx-auto rounded border p-3">
+		<h2 class="text-center mb-5">New Dealership</h2>
+
+		<form method="post" enctype="multipart/form-data">
+
+			<div class="row mb-3>">
+				<label class="col-sm-4 col-form-label">Dealership Name</label>
+				<div class="col-sm-8">
+					<input class="form-control" asp-for="Name" />
+					<span asp-validation-for="Name" class="text-danger"></span>
+				</div>
+			</div>
+
+			<div class="row mb-3>">
+				<label class="col-sm-4 col-form-label">Location</label>
+				<div class="col-sm-8">
+					<input class="form-control" asp-for="Location" />
+					<span asp-validation-for="Location" class="text-danger"></span>
+				</div>
+			</div>
+
+			<div class="row d-flex justify-content-center gap-3">
+				<button type="submit" class="btn btn-primary w-50">Publish</button>
+				<a class="btn btn-outline-primary w-50" asp-controller="Dealership" asp-action="Index" role="button">
+					Cancel
+				</a>
+			</div>
+
+
+		</form>
+	</div>
+</div>
+
+
