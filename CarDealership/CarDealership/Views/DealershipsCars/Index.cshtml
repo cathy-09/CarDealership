@@ -1,0 +1,39 @@
+﻿@using CarDealership.Data.Models;
+@using static CarDealership.Common.AdminRole;
+@model List<DealershipsCars>
+@{
+
+}
+<h2 class=" text-center mb-5">List of @Model.Count DealershipCars</h2>
+<div class="row mb-5">
+    <div class="col">
+        @if (User.IsInRole(AdminRoleName))
+        {
+            <a class="btn btn-primary" asp-area="" asp-controller="DealershipCars" asp-action="Create">New Dealershipcars</a>
+        }
+    </div>
+    <div class="col">
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Car</th>
+            <th>Dealership</th>
+            <th>Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Car.Brand.BrandName</td>
+                <td>@item.Car.Model</td>
+                <td>@item.Dealership.Name</td>
+                <td>@item.Dealership.Location</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
