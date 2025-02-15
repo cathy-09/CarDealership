@@ -225,7 +225,7 @@ namespace CarDealership.Data
                     CarId = 1,
                     BrandId = BrandsList[0].BrandId,
                     Model = "Octavia 2",
-                    CarImageURL="https://www.google.com/url?sa=i&url=https%3A%2F%2Fbg.m.wikipedia.org%2Fwiki%2F%25D0%25A4%25D0%25B0%25D0%25B9%25D0%25BB%3ASkoda_Octavia_II_silver_vr.jpg&psig=AOvVaw28Xvk4Sykzwr3-x7PR9jA_&ust=1739651159020000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPDIvNz_w4sDFQAAAAAdAAAAABAe",
+                    CarImageURL="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Skoda_Octavia_II_silver_vr.jpg/1024px-Skoda_Octavia_II_silver_vr.jpg",
                     Year = 2008,
                     FuelType = "diesel",
                     Kilometers = 399138,
@@ -239,7 +239,7 @@ namespace CarDealership.Data
                     CarId = 2,
                     BrandId = BrandsList[2].BrandId,
                     Model = "X5",
-                    CarImageURL="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.edmunds.com%2Fbmw%2Fx5%2F&psig=AOvVaw126ZB8ipJgwC5VWqTnrpkM&ust=1739651512091000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOD6tIWBxIsDFQAAAAAdAAAAABAE",
+                    CarImageURL="https://stimg.cardekho.com/images/carexteriorimages/930x620/BMW/X5-2023/10452/1688992642182/front-left-side-47.jpg",
                     Year = 2011,
                     FuelType = "gasoline",
                     Kilometers = 206000,
@@ -253,7 +253,7 @@ namespace CarDealership.Data
                     CarId = 3,
                     BrandId = BrandsList[0].BrandId,
                     Model = "Octavia 3",
-                    CarImageURL="https://www.google.com/url?sa=i&url=https%3A%2F%2Fautodata24.com%2Fskoda%2Foctavia%2Foctavia-iii-liftback%2Fdetails&psig=AOvVaw3EsEr0Gox55AxMKyhEFYnu&ust=1739651853052000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMjun6eCxIsDFQAAAAAdAAAAABAE",
+                    CarImageURL="https://www.tuning.bg/public/upload/gallery/extended/normal/sfa1.jpg",
                     Year = 2016,
                     FuelType = "diesel",
                     Kilometers = 174000,
@@ -265,9 +265,9 @@ namespace CarDealership.Data
                 new Car()
                 {
                     CarId = 4,
-                    BrandId = BrandsList[8].BrandId,
+                    BrandId = BrandsList[7].BrandId,
                     Model = "A6",
-                    CarImageURL="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.edmunds.com%2Fbmw%2Fx5%2F&psig=AOvVaw126ZB8ipJgwC5VWqTnrpkM&ust=1739651512091000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOD6tIWBxIsDFQAAAAAdAAAAABAE",
+                    CarImageURL="https://stimg.cardekho.com/images/carexteriorimages/930x620/Audi/A6/10552/1708935437947/front-left-side-47.jpg",
                     Year = 2015,
                     FuelType = "gasoline",
                     Kilometers = 232000,
@@ -337,10 +337,10 @@ namespace CarDealership.Data
             GuestUser = new IdentityUser()
             {
                 UserName = "GuestUser@gmail.com",
-                NormalizedUserName = "TEST@SOFTUNI.BG",
+                NormalizedUserName = "GuestUser@gmail.com",
             };
 
-            GuestUser.PasswordHash = hasher.HashPassword(GuestUser, "softuni");
+            GuestUser.PasswordHash = hasher.HashPassword(GuestUser, "123");
 
             AdminUser = new IdentityUser()
             {

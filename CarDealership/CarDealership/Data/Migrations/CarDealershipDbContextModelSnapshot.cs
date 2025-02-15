@@ -162,56 +162,56 @@ namespace CarDealership.Data.Migrations
                         {
                             CarId = 1,
                             BrandId = 1,
-                            CarImageURL = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fbg.m.wikipedia.org%2Fwiki%2F%25D0%25A4%25D0%25B0%25D0%25B9%25D0%25BB%3ASkoda_Octavia_II_silver_vr.jpg&psig=AOvVaw28Xvk4Sykzwr3-x7PR9jA_&ust=1739651159020000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPDIvNz_w4sDFQAAAAAdAAAAABAe",
+                            CarImageURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Skoda_Octavia_II_silver_vr.jpg/1024px-Skoda_Octavia_II_silver_vr.jpg",
                             Description = "Production years: from 2004 to 2013\r\n Engine displacement: from 1197 cm3 / 73 cu-in to 1984 cm3 / 121.1 cu-in\r\n Horsepower: from 75 PS / 74 HP / 55 kW to 200 PS / 197 HP / 147 kW\r\n Length: 457.2 cm / 180 inches Width: 176.9 cm / 69.65 inches Height: 146.2 cm / 57.56 inches Wheelbase: 257.8 cm / 101.5 inches\r\n CO2 emissions: from 119 to 242 g/Km",
                             FuelType = "diesel",
                             HorsePower = 105,
                             Kilometers = 399138,
                             Model = "Octavia 2",
                             Price = 6500.00m,
-                            UserId = "7cf7bb02-bad8-4cca-9a97-68ffec8ae0c0",
+                            UserId = "1e9ce61e-0954-4a6f-9eb3-7c5c48715c92",
                             Year = 2008
                         },
                         new
                         {
                             CarId = 2,
                             BrandId = 3,
-                            CarImageURL = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.edmunds.com%2Fbmw%2Fx5%2F&psig=AOvVaw126ZB8ipJgwC5VWqTnrpkM&ust=1739651512091000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOD6tIWBxIsDFQAAAAAdAAAAABAE",
+                            CarImageURL = "https://stimg.cardekho.com/images/carexteriorimages/930x620/BMW/X5-2023/10452/1688992642182/front-left-side-47.jpg",
                             Description = "The BMW X5 has 1 Diesel Engine and 1 Petrol Engine on offer.\r\n The Diesel engine is 2993 cc while the Petrol engine is 2998 cc.\r\n It is available with Automatic transmission.\r\nDepending upon the variant and fuel type the X5 has a mileage of 12 kmpl. The X5 is a 5 seater 6 cylinder car and has length of 4922 mm,\r\n width of 2004 mm and a wheelbase of 2975 mm.",
                             FuelType = "gasoline",
                             HorsePower = 306,
                             Kilometers = 206000,
                             Model = "X5",
                             Price = 22000.00m,
-                            UserId = "7cf7bb02-bad8-4cca-9a97-68ffec8ae0c0",
+                            UserId = "1e9ce61e-0954-4a6f-9eb3-7c5c48715c92",
                             Year = 2011
                         },
                         new
                         {
                             CarId = 3,
                             BrandId = 1,
-                            CarImageURL = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fautodata24.com%2Fskoda%2Foctavia%2Foctavia-iii-liftback%2Fdetails&psig=AOvVaw3EsEr0Gox55AxMKyhEFYnu&ust=1739651853052000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMjun6eCxIsDFQAAAAAdAAAAABAE",
+                            CarImageURL = "https://www.tuning.bg/public/upload/gallery/extended/normal/sfa1.jpg",
                             Description = " Production years: from 2013 to 2016\r\n Engine displacement: from 1197 cm3 / 73 cu-in to 1984 cm3 / 121.1 cu-in\r\n Horsepower: from 86 PS / 85 HP / 63 kW to 220 PS / 217 HP / 162 kW\r\n Length: 465.9 cm / 183.43 inches Width: 181.4 cm / 71.42 inches Height: 146.1 cm / 57.52 inches Wheelbase: 268.6 cm / 105.75 inches\r\n Curb Weight: from 1215 kg / 2679 lbs to 1470 kg / 3241 lbs\r\n CO2 emissions: from 97 to 142 g/Km",
                             FuelType = "diesel",
                             HorsePower = 110,
                             Kilometers = 174000,
                             Model = "Octavia 3",
                             Price = 35000.00m,
-                            UserId = "7cf7bb02-bad8-4cca-9a97-68ffec8ae0c0",
+                            UserId = "1e9ce61e-0954-4a6f-9eb3-7c5c48715c92",
                             Year = 2016
                         },
                         new
                         {
                             CarId = 4,
-                            BrandId = 9,
-                            CarImageURL = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.edmunds.com%2Fbmw%2Fx5%2F&psig=AOvVaw126ZB8ipJgwC5VWqTnrpkM&ust=1739651512091000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOD6tIWBxIsDFQAAAAAdAAAAABAE",
+                            BrandId = 8,
+                            CarImageURL = "https://stimg.cardekho.com/images/carexteriorimages/930x620/Audi/A6/10552/1708935437947/front-left-side-47.jpg",
                             Description = "The Audi A6 has 1 Petrol Engine on offer. \r\nThe Petrol engine is 1984 cc . It is available with Automatic transmission.\r\nDepending upon the variant and fuel type the A6 has a mileage of 14.11 kmpl & Ground clearance of A6 is 165 mm. \r\nThe A6 is a 5 seater 4 cylinder car and has length of 4939 mm,\r\n width of 2110 mm and a wheelbase of 2500 mm.",
                             FuelType = "gasoline",
                             HorsePower = 272,
                             Kilometers = 232000,
                             Model = "A6",
                             Price = 34500.00m,
-                            UserId = "7cf7bb02-bad8-4cca-9a97-68ffec8ae0c0",
+                            UserId = "1e9ce61e-0954-4a6f-9eb3-7c5c48715c92",
                             Year = 2015
                         });
                 });
@@ -532,31 +532,31 @@ namespace CarDealership.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "7cf7bb02-bad8-4cca-9a97-68ffec8ae0c0",
+                            Id = "1e9ce61e-0954-4a6f-9eb3-7c5c48715c92",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "92dd08a8-36c7-4c88-9077-a1f8e92200d5",
+                            ConcurrencyStamp = "1315b12f-3632-46c9-8c63-a6d62378d1d7",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            NormalizedUserName = "TEST@SOFTUNI.BG",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFfDUzC9h2GZVs3bA2Y1ek40eIy0POlUYkVbAlGwA28f6pxzMm2Xlj9WXOveYx5/Ew==",
+                            NormalizedUserName = "GuestUser@gmail.com",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOtr6Rgqs0QlMeyLxv9WgtfkSCFCYCXTuDJkYCOpmHgRJe1tsYi18luSttjQu79Z9A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6be4c80a-5c45-4d32-ab8c-5b3ed560527a",
+                            SecurityStamp = "a77b0d30-4945-4334-b9b9-a36c0db669c2",
                             TwoFactorEnabled = false,
                             UserName = "GuestUser@gmail.com"
                         },
                         new
                         {
-                            Id = "47aaf910-32bc-447d-a751-081c7121f7e7",
+                            Id = "7e4d673f-8098-45d1-90b1-db263f985663",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6f2ed0d6-47a9-4e58-a961-9f29fd05b25b",
+                            ConcurrencyStamp = "cc4b25aa-2a7b-40e9-a272-f551d775db52",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@gmail.com",
                             NormalizedUserName = "admin@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAWcYiHkyhRbt12kBVBg7JijXIqdQuZER4jXZZSCQKXp4EzMUjPZAiFSzb05IoAElA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEKJV5IyklgN8F0wDSEwhIc8n7cV4xbA8nw2Wbsm35nW9Vx0oeMqkMR6y5R3NlUCKQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "cba48ed0-6ccf-496f-886d-67ac50853d98",
+                            SecurityStamp = "3fdb39ab-812b-4252-b627-26b393205e80",
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com"
                         });

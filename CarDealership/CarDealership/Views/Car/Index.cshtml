@@ -1,0 +1,35 @@
+﻿@using CarDealership.Data.Models;
+@using static CarDealership.Common.AdminRole;
+@model List<Car>
+
+<h2 class="text-center mb-5">List of @Model.Count Cars</h2>
+
+<div class="row mb-5">
+    <div class="col">
+        <a class="btn btn-primary" asp-controller="Car" asp-action="Create" style="background-color:antiquewhite; color:black">New Advertisment</a>
+    </div>
+</div>
+
+<!-- Контейнерът, който ще държи картите на един ред -->
+<div class="car-container">
+    @foreach (var car in Model)
+    {
+        <div class="car-card card">
+            <img src="@car.CarImageURL" class="card-img-top" alt="Image of @car.Brand.BrandName @car.Model">
+            <div class="card-body">
+                <h5 class="card-title">@car.Brand.BrandName @car.Model (@car.Year)</h5>
+                <p class="card-text">
+                    <strong>Fuel Type:</strong> @car.FuelType<br>
+                    <strong>Kilometres:</strong> @car.Kilometers km<br>
+                    <strong>Horse Power:</strong> @car.HorsePower HP<br>
+                    <strong>Price:</strong> $@car.Price
+                </p>
+                <p class="card-text">@car.Description</p>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-warning btn-sm" asp-controller="Car" asp-action="Edit" asp-route-id="@car.CarId">Edit</a>
+                <a class="btn btn-danger btn-sm" asp-controller="Car" asp-action="Delete" asp-route-id="@car.CarId" onclick="return confirm('Are you sure?')">Delete</a>
+            </div>
+        </div>
+    }
+</div>
