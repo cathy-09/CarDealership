@@ -1,6 +1,7 @@
 # CarDealership
 
-![image](https://github.com/user-attachments/assets/d806e93c-29a7-44da-9918-4f7b43244d41)
+![image](https://github.com/user-attachments/assets/db863d10-49a4-4463-8776-bac7d6aa746c)
+
 
 ```sql
 CREATE DATABASE CarDealership1;
