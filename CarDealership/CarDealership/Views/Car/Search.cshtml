@@ -1,0 +1,62 @@
+﻿@using CarDealership.Models.Cars;
+@model CarSearchViewModel;
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+<div class="text-center">
+    <h2>Search Cars</h2>
+</div>
+
+<form asp-action="Search" method="get" class="mt-3">
+    <div class="row">
+        <div class="col-md-3">
+            <label for="brandName">Brand Name</label>
+            <input type="text" id="brandName" name="brandName" class="form-control"
+                   value="@Model.BrandName" placeholder="Enter brand name..." />
+        </div>
+
+        <div class="col-md-1 d-flex align-items-end">
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-search"></i> Search
+            </button>
+        </div>
+    </div>
+</form>
+
+<hr />
+
+@if (Model.Cars != null && Model.Cars.Any())
+{
+    <h3>Results</h3>
+    <div class="row">
+        @foreach (var car in Model.Cars)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="@car.CarImageURL" class="card-img-top" alt="Image of @car.Brand.BrandName @car.Model" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">@car.Brand.BrandName @car.Model (@car.Year)</h5>
+                        <p class="card-text">
+                            <strong>Fuel Type:</strong> @car.FuelType<br>
+                            <strong>Power:</strong> @car.HorsePower HP<br>
+                            <strong>Mileage:</strong> @car.Kilometers km<br>
+                            <strong>Price:</strong> @car.Price.ToString("C")
+                        </p>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <a asp-controller="Cars" asp-action="Details" asp-route-id="@car.CarId"
+                           class="btn btn-primary btn-block">View Details</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else if (!string.IsNullOrEmpty(Model.BrandName))
+{
+    <div class="alert alert-info">
+        No cars found matching your search for "@Model.BrandName".
+    </div>
+}

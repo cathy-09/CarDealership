@@ -23,11 +23,47 @@ namespace CarDealership.Controllers
             _context = carDealershipDbContext;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string brandName)
         {
+            var query = _context.Cars
+                .Include(c => c.Brand)
+                .Include(c => c.User)
+                .AsQueryable();
 
-            List<Car> cars = FillBrand().OrderByDescending(x => x.CarId).ToList();
+            if (!string.IsNullOrEmpty(brandName))
+            {
+                query = query.Where(c => c.Brand.BrandName.Contains(brandName));
+            }
+
+            var cars = query.ToList();
+            ViewData["BrandName"] = brandName;
+
             return View(cars);
+        }
+
+        [HttpGet]
+        public IActionResult Search(string brandName)
+        {
+            var viewModel = new CarSearchViewModel
+            {
+                BrandName = brandName,
+                Cars = new List<Car>()
+            };
+
+            var query = _context.Cars
+                .Include(c => c.Brand)
+                .Include(c => c.User)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(brandName))
+            {
+                query = query.Where(c => c.Brand.BrandName.Contains(brandName));
+            }
+
+            viewModel.Cars = query.ToList();
+            ViewData["BrandName"] = brandName; 
+
+            return View(viewModel);
         }
 
         public List<Car> FillBrand()
